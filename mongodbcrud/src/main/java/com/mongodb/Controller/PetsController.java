@@ -22,7 +22,7 @@ import java.util.List;
 public class PetsController {
     @Autowired
     private PetsRepository repository;
-
+    
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public List<Pets> getAllPets() {
         return repository.findAll();
@@ -32,7 +32,7 @@ public class PetsController {
     public Pets getPetById(@PathVariable("id") ObjectId id) {
         return repository.findBy_id(id);
     }
-
+    //Update
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public void modifyPetById(@PathVariable("id") ObjectId id, @Valid @RequestBody Pets pets) {
         pets.set_id(id);
